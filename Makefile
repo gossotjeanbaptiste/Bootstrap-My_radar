@@ -7,6 +7,10 @@
 
 LIB = libmy.a libmy_graphical.a
 PROJECT_NAME = bsmy_radar
+MY_LIB = -lmy -lmy_graphical
+CSFML_LIB = -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
+-lcsfml-system -lcsfml-network
+FLAGS = -Wall -Wextra -Wimplicit
 
 all: libmy.a compile
 
@@ -23,14 +27,12 @@ libmy.a:
 		make compile
 
 compile:
-		gcc -o $(PROJECT_NAME) *.c src/*.c -I include/ -L ./ -lmy -lmy_graphical \
-		-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
-		-lcsfml-network -Wall -Wextra -Wimplicit
+		gcc -o $(PROJECT_NAME) *.c src/*.c -I include/ -L ./ $(MY_LIB) \
+		$(CSFML_LIB) $(FLAGS)
 
 segfault :
-		gcc -o $(PROJECT_NAME) -g *.c src/*.c -I include/ -L ./ -lmy -lmy_graphical \
-		-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
-		-lcsfml-network
+		gcc -o $(PROJECT_NAME) -g *.c src/*.c -I include/ -L ./ $(MY_LIB) \
+		$(CSFML_LIB) $(FLAGS)
 
 clean:
 		cd lib/my && make clean
