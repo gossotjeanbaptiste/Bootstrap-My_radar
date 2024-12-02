@@ -15,7 +15,7 @@ void var_declaration(void)
 
     csfml_var.mode = (sfVideoMode){1920, 1080, 32};
     csfml_var.window = sfRenderWindow_create(csfml_var.mode,
-    "My_Hunter", sfResize | sfClose, NULL);
+    "Bootstrap My_Radar", sfResize | sfClose, NULL);
     csfml_var.framerate = 24;
     bsmy_radar(&csfml_var);
 }

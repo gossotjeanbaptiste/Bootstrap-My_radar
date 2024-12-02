@@ -13,15 +13,8 @@ int start_game(struct csfml_var *csfml_var)
 {
     if (!csfml_var->window)
         return EXIT_FAILURE;
-    while (sfRenderWindow_isOpen(csfml_var->window))
-    {
-        /* Process events */
-        while (sfRenderWindow_pollEvent(csfml_var->window, &csfml_var->event))
-        {
-            /* Close window : exit */
-            if (csfml_var->event.type == sfEvtClosed)
-                sfRenderWindow_close(csfml_var->window);
-        }
+    while (sfRenderWindow_isOpen(csfml_var->window)) {
+        analyse_events(csfml_var);
         sfRenderWindow_clear(csfml_var->window, sfBlack);
         sfRenderWindow_display(csfml_var->window);
     }
