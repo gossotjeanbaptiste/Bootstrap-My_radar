@@ -8,7 +8,7 @@
 LIB = libmy.a libmy_graphical.a
 PROJECT_NAME = bsmy_radar
 
-all: libmy.a
+all: libmy.a compile
 
 start :
 		mv gitignore.txt .gitignore
@@ -23,12 +23,12 @@ libmy.a:
 		make compile
 
 compile:
-		gcc -o $(PROJECT_NAME) *.c -I include/ -L ./ -lmy -lmy_graphical \
+		gcc -o $(PROJECT_NAME) *.c src/*.c -I include/ -L ./ -lmy -lmy_graphical \
 		-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
-		-lcsfml-network -Wall -Wextra -Wunused -Wimplicit
+		-lcsfml-network -Wall -Wextra -Wimplicit
 
 segfault :
-		gcc -o $(PROJECT_NAME) -g *.c -I include/ -L ./ -lmy -lmy_graphical \
+		gcc -o $(PROJECT_NAME) -g *.c src/*.c -I include/ -L ./ -lmy -lmy_graphical \
 		-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
 		-lcsfml-network
 

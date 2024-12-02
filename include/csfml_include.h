@@ -53,4 +53,5 @@ void mouse_click(struct csfml_var *csfml_var);
 void sprite_hitbox(struct csfml_var *csfml_var);
 void recreate_sprite(struct csfml_var *csfml_var);
 int bsmy_radar(struct csfml_var *csfml_var);
+int start_game(struct csfml_var *csfml_var);
 #endif /* !INCLUDED_CSFML_INCLUDE_H */

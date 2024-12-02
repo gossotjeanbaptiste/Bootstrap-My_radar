@@ -21,4 +21,5 @@ int start_game(struct csfml_var *csfml_var)
     sfRenderWindow_setFramerateLimit(csfml_var->window, csfml_var->framerate);
     main_loop(csfml_var);
     destroy_everything(csfml_var);
+    return 0;
 }
