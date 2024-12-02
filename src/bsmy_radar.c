@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** Epi-Graphical-C-Template
 ** File description:
-** bsmy_radar
+** project
 */
 
 #include "../include/csfml_include.h"
