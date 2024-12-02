@@ -15,9 +15,9 @@ int main(int ac, char **av)
     if (ac == 1) {
         var_declaration();
     } else if (av[1][0] == '-' && av[1][1] == 'h') {
-        mini_printf(MAG"Project: \n"
-        BRED"\tGame type : To complete \n"
-        BLU"\tInspired Game : Is there an inspired game ? \n"
+        mini_printf(MAG"Bootstrap My_Radar: \n"
+        BRED"\tGame type : Simulation of airline traffic \n"
+        BLU"\tInspired Game : Not known \n"
         GRN"\tCreated by Jean-Baptiste GOSSOT, Epitech Nancy PGE 2029\n"
         BGRN"\t©JustWirelessInc. 2021-2029\n"COLOR_RESET);
     } else {

@@ -11,11 +11,11 @@
 
 void destroy_everything(struct csfml_var *csfml_var)
 {
-    sfSprite_destroy(csfml_var->sprite);
+    /*sfSprite_destroy(csfml_var->sprite);
     sfSprite_destroy(csfml_var->background);
     sfTexture_destroy(csfml_var->texture_sprite);
     sfTexture_destroy(csfml_var->texture_background);
     sfClock_destroy(csfml_var->clock_animation);
-    sfClock_destroy(csfml_var->clock_movement);
+    sfClock_destroy(csfml_var->clock_movement);*/
     sfRenderWindow_destroy(csfml_var->window);
 }
