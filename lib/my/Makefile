@@ -64,7 +64,9 @@ SRC 	= 	mini_printf.c 	\
 		my_strstr.c 	\
 		my_strupcase.c 	\
 		my_swap.c 	\
-		swap_index.c
+		swap_index.c 	\
+		my_str_to_word_array.c 	\
+		my_show_word_array.c
 
 OBJ	=	$(SRC:.c=.o)
 
