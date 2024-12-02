@@ -6,7 +6,7 @@
 ##
 
 LIB = libmy.a libmy_graphical.a
-PROJECT_NAME = my_radar
+PROJECT_NAME = bsmy_radar
 
 all: libmy.a
 

@@ -30,5 +30,5 @@ void var_declaration(void)
     csfml_var.sprite = sfSprite_create();
     csfml_var.position = (sfVector2f){0, randint(50, 1000)};
     csfml_var.framerate = 24;
-    project(&csfml_var);
+    bsmy_radar(&csfml_var);
 }
