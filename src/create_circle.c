@@ -4,23 +4,53 @@
 ** File description:
 ** create_circle
 */
-#include "include/csfml_include.h"
-#include "include/my.h"
-#include "include/my_graphical.h"
-#include "include/struct_fb.h"
+#include "../include/csfml_include.h"
+#include "../include/my.h"
+#include "../include/my_graphical.h"
+#include "../include/struct_fb.h"
 
-sfCircleShape *create_circle(sfVector2f position, float radius,
-    struct csfml_var *csfml_var)
+sfCircleShape *create_circle(sfVector2f position, float radius)
 {
-    csfml_var->circle = sfCircleShape_create();
-    csfml_var->color.r = randint(0, 255);
-    csfml_var->color.g = randint(0, 255);
-    csfml_var->color.b = randint(0, 255);
-    csfml_var->color.a = 0;
-    sfCircleShape_setPosition(csfml_var->circle, position);
-    sfCircleShape_setOutlineColor(csfml_var->circle, csfml_var->color);
-    sfCircleShape_setRadius(csfml_var->circle, radius);
-    sfCircleShape_setOutlineThickness(csfml_var->circle, 1);
-    sfRenderWindow_drawCircleShape(csfml_var->window, csfml_var->circle, 0);
-    return 0;
+    sfCircleShape *circle = sfCircleShape_create();
+
+    if (!circle)
+        return NULL;
+    sfCircleShape_setPosition(circle, position);
+    sfCircleShape_setRadius(circle, radius);
+    sfCircleShape_setOutlineColor(circle, sfWhite);
+    sfCircleShape_setOutlineThickness(circle, 1);
+    sfCircleShape_setFillColor(circle, sfTransparent);
+    return circle;
+}
+
+bool check_intersection(sfCircleShape *circle1, sfCircleShape *circle2)
+{
+    sfVector2f pos1 = sfCircleShape_getPosition(circle1);
+    sfVector2f pos2 = sfCircleShape_getPosition(circle2);
+    float radius1 = sfCircleShape_getRadius(circle1);
+    float radius2 = sfCircleShape_getRadius(circle2);
+    float dx = (pos1.x + radius1) - (pos2.x + radius2);
+    float dy = (pos1.y + radius1) - (pos2.y + radius2);
+    float distance = sqrt((dx * dx) + (dy * dy));
+
+    return distance <= (radius1 + radius2);
+}
+
+void draw_circles(sfRenderWindow *window)
+{
+    sfVector2f position1 = {100, 100};
+    sfVector2f position2 = {150, 150};
+    float radius1 = 50;
+    float radius2 = 50;
+    sfCircleShape *circle1 = create_circle(position1, radius1);
+    sfCircleShape *circle2 = create_circle(position2, radius2);
+
+    if (check_intersection(circle1, circle2)) {
+        sfCircleShape_setFillColor(circle1, sfWhite);
+        sfCircleShape_setFillColor(circle2, sfWhite);
+    }
+    sfRenderWindow_drawCircleShape(window, circle1, NULL);
+    sfRenderWindow_drawCircleShape(window, circle2, NULL);
+    sfCircleShape_destroy(circle1);
+    sfCircleShape_destroy(circle2);
 }

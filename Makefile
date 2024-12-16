@@ -7,7 +7,7 @@
 
 LIB = libmy.a libmy_graphical.a
 PROJECT_NAME = bsmy_radar
-MY_LIB = -lmy -lmy_graphical
+MY_LIB = -lmy -lmy_graphical -lm
 CSFML_LIB = -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio \
 -lcsfml-system -lcsfml-network
 FLAGS = -Wall -Wextra -Wimplicit

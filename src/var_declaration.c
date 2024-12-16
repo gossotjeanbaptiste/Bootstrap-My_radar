@@ -12,12 +12,10 @@
 void var_declaration(void)
 {
     struct csfml_var csfml_var;
-
+    
     csfml_var.mode = (sfVideoMode){1920, 1080, 32};
     csfml_var.window = sfRenderWindow_create(csfml_var.mode,
     "Bootstrap My_Radar", sfResize | sfClose, NULL);
     csfml_var.framerate = 24;
-    csfml_var.position.x = randint(100, 1800);
-    csfml_var.position.y = randint(100, 900);
     bsmy_radar(&csfml_var);
 }

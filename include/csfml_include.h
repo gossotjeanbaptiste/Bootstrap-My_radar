@@ -12,6 +12,8 @@
 #include <SFML/Window/Mouse.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
 
 #ifndef INCLUDED_CSFML_INCLUDE_H
     #define INCLUDED_CSFML_INCLUDE_H
@@ -35,7 +37,8 @@ struct csfml_var {
     sfFloatRect sprite_bounds;
     sfTime time_animation;
     sfTime time_movement;
-    sfCircleShape *circle;
+    sfCircleShape *circle1;
+    sfCircleShape *circle2;
     sfColor color;
     float delta_time_animation;
     float delta_time_movement;
@@ -50,6 +53,7 @@ int main(int ac, char **av);
 int start_game(struct csfml_var *csfml_var);
 void var_declaration(void);
 int bsmy_radar(struct csfml_var *csfml_var);
-sfCircleShape *create_circle(sfVector2f position, float radius,
-    struct csfml_var *csfml_var);
+sfCircleShape *create_circle(sfVector2f position, float radius);
+bool check_intersection(sfCircleShape *circle1, sfCircleShape *circle2);
+void draw_circles(sfRenderWindow *window);
 #endif /* !INCLUDED_CSFML_INCLUDE_H */
