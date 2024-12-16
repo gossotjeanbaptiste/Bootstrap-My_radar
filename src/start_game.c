@@ -16,8 +16,8 @@ int start_game(struct csfml_var *csfml_var)
     while (sfRenderWindow_isOpen(csfml_var->window)) {
         analyse_events(csfml_var);
         sfRenderWindow_clear(csfml_var->window, sfBlack);
-        sfRenderWindow_display(csfml_var->window);
         draw_circles(csfml_var->window);
+        sfRenderWindow_display(csfml_var->window);
     }
     return EXIT_SUCCESS;
 }

@@ -23,12 +23,12 @@ sfCircleShape *create_circle(sfVector2f position, float radius)
     return circle;
 }
 
-bool check_intersection(sfCircleShape *circle1, sfCircleShape *circle2)
+int is_intersecting_circles(sfCircleShape *c1, sfCircleShape *c2)
 {
-    sfVector2f pos1 = sfCircleShape_getPosition(circle1);
-    sfVector2f pos2 = sfCircleShape_getPosition(circle2);
-    float radius1 = sfCircleShape_getRadius(circle1);
-    float radius2 = sfCircleShape_getRadius(circle2);
+    sfVector2f pos1 = sfCircleShape_getPosition(c1);
+    sfVector2f pos2 = sfCircleShape_getPosition(c2);
+    float radius1 = sfCircleShape_getRadius(c1);
+    float radius2 = sfCircleShape_getRadius(c2);
     float dx = (pos1.x + radius1) - (pos2.x + radius2);
     float dy = (pos1.y + radius1) - (pos2.y + radius2);
     float distance = sqrt((dx * dx) + (dy * dy));
