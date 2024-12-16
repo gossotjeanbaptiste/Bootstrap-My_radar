@@ -35,6 +35,8 @@ struct csfml_var {
     sfFloatRect sprite_bounds;
     sfTime time_animation;
     sfTime time_movement;
+    sfCircleShape *circle;
+    sfColor color;
     float delta_time_animation;
     float delta_time_movement;
     int framerate;
@@ -48,4 +50,6 @@ int main(int ac, char **av);
 int start_game(struct csfml_var *csfml_var);
 void var_declaration(void);
 int bsmy_radar(struct csfml_var *csfml_var);
+sfCircleShape *create_circle(sfVector2f position, float radius,
+    struct csfml_var *csfml_var);
 #endif /* !INCLUDED_CSFML_INCLUDE_H */

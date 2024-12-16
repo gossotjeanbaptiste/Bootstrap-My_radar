@@ -18,6 +18,5 @@ int start_game(struct csfml_var *csfml_var)
         sfRenderWindow_clear(csfml_var->window, sfBlack);
         sfRenderWindow_display(csfml_var->window);
     }
-    sfRenderWindow_destroy(csfml_var->window);
     return EXIT_SUCCESS;
 }

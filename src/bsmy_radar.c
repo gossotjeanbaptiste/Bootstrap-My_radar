@@ -12,8 +12,7 @@
 
 int bsmy_radar(struct csfml_var *csfml_var)
 {
-    if (!csfml_var->window || !csfml_var->texture_sprite || !csfml_var->sprite
-    || !csfml_var->texture_background)
+    if (!csfml_var->window)
         return EXIT_FAILURE;
     else
         start_game(csfml_var);
